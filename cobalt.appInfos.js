@@ -7,7 +7,7 @@
             cobalt.getAppInfos = this.getAppInfos.bind(this);
         },
         getAppInfos:function(callback){
-            this.send("getAppInfos", {}, function( data ){
+            cobalt.plugins.send(this, "getAppInfos", {}, function( data ){
 				if (typeof callback == "function"){
 					callback(data);
 				}else{
@@ -17,9 +17,6 @@
         },
         handleEvent:function(json){
             cobalt.log(this.name, ' plugin : unknown event received :', json)
-        },
-        send:function(action, data, callback){
-			cobalt.send({ type : "plugin", name : this.name, action : action, data : data }, callback);
         }
     };
     cobalt.plugins.register(plugin);
