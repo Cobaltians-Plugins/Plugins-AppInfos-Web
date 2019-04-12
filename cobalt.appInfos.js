@@ -1,7 +1,9 @@
 (function(cobalt){
     var plugin={
-        name:"appInfos",
-
+        classes:{
+			ios: "CobaltAppInfosPlugin",
+            android: "io.kristal.appinfos.AppInfosPlugin"
+        },
         init:function(){
             //create shortcuts
             cobalt.getAppInfos = this.getAppInfos.bind(this);
@@ -14,9 +16,6 @@
                     cobalt.log('Received infos = ',data, typeof callback)
                 }
             })
-        },
-        handleEvent:function(json){
-            cobalt.log(this.name, ' plugin : unknown event received :', json)
         }
     };
     cobalt.plugins.register(plugin);
