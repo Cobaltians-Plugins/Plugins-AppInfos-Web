@@ -1,5 +1,6 @@
 (function(cobalt) {
   var plugin = {
+    name: 'CobaltAppInfosPlugin',
     classes: {
       ios: "CobaltAppInfosPlugin",
       android: "io.kristal.appinfos.AppInfosPlugin"
