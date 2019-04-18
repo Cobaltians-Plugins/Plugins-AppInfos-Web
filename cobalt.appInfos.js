@@ -9,13 +9,7 @@
       cobalt.getAppInfos = this.getAppInfos.bind(this);
     },
     getAppInfos: function(callback) {
-      this.onAppInfosResult = callback;
-      cobalt.plugins.send(this, "getAppInfos", {})
-    },
-    handleEvent: function(json) {
-      if (typeof this.onAppInfosResult === 'function') {
-        this.onAppInfosResult(json.data)
-      }
+      cobalt.plugins.send(this, "getAppInfos", {}, callback)
     }
   };
   cobalt.plugins.register(plugin);
